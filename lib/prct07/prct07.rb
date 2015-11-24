@@ -2,15 +2,33 @@ require "prct07/version"
 
 class Bibliografia
 		attr_reader  :head, :tail
-		
+		include Enumerable
 		Node = Struct.new :value, :next , :prev
 
-		def initialize (referencias)
+		def initialize (referencias) 
 			if referencias.instance_of? Referencia
 				@head = Node.new(referencias, nil, nil)
 				@tail = nil
 			else raise "Debe crearse una clase Referencia y pasarla como parámetro al constructor de esta clase" end
 		end
+		
+def each
+aux = @head
+    if (@head == nil and @tail == nil)
+                
+                yield nil
+                
+            elsif (@head == @tail)
+                
+                yield @head.value
+            else
+                while(aux != nil)
+                    yield aux.value  
+                    aux = aux.next 
+                end
+    end
+end
+   
 		def add (value)
 			if value.is_a? Referencia #Si se pasa una sola referencia
 				if @head == nil
@@ -42,9 +60,9 @@ class Bibliografia
 		end
 end
 class Referencia
-		attr_accessor :autor, :titulo, :serie, :editorial, :nedi, :fecha, :isbn
-
-		def initialize (autor, titulo, serie, editorial, nedi, fecha, isbn)
+		attr_accessor :autor, :titulo, :serie,:editorial,:nedi,  :fecha, :isbn  
+		include Comparable
+		def initialize (autor, titulo, serie, editorial, nedi, fecha, isbn )
 			@autor = autor
 			@titulo = titulo
 			@serie = serie
@@ -54,13 +72,22 @@ class Referencia
 			@isbn = isbn
 		end
 
+		def <=>(other)
+			#return nil unless other.kind_of? Bibliografia::Bibliografia
+			@titulo <=> other.titulo
+		end
+		
+		def ==(other)
+			#return nil unless other.kind_of? Bibliografia::Bibliografia
+			@titulo == other.titulo
+		end
 		def to_s
 			salida = String.new ""
 			salida += self.autores
 			salida +=
 			"#{titulo}\n"+
 			"#{serie}\n"+
-			"#{editorial}; #{nedi} (#{fecha})\n"
+	    	"#{editorial}; #{nedi} (#{fecha})\n"
 			"#{isbn}\n"
 			salida += self.isbns
 			return salida
@@ -98,13 +125,15 @@ end
 
 class Libro < Referencia
     #
-        attr_accessor :editorial, :isbn
-    
-        def initialize (autor, titulo, serie, editorial, nedi, fecha, isbn)
-            super(autor, titulo, serie, nedi, fecha) #llamada al constructor de la clase padre
-            @editorial = editorial
-            @isbn = isbn
-        end
+       attr_accessor :isbn, :editorial, :nedi
+		def initialize(titulo, autor, fecha, isbn, editorial, nedi)
+			@titulo= titulo
+		    @autor= autor
+		    @fecha= fecha
+			@isbn= isbn
+			@editorial= editorial
+			@nedi= nedi
+		end
     
     	def isbns
         	salida = String.new ""

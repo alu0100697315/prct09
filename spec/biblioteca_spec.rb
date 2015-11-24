@@ -19,6 +19,26 @@ describe Referencia do
         @b1.add(@r2)
        
     end
+    
+context "#Pruebas include enumerable" do
+    
+       before :each do
+        @l1 = Bibliografia.new @r1
+        @l1.add(@r2)
+            
+            @l1.add(@r1)
+            @l1.add(@r2)
+            @l1.add(@r4)
+        end
+        it "comprobrando el metodo all? con un bloque vacio" do
+        #all? -> The method returns true if the block never returns false or nil
+          expect(@l1.all?).to eq(true)
+        end
+        it "comprobrando el metodo any?" do
+        #any -> The method returns true if the block ever returns a value other than false or nil
+          expect(@l1.any?).to eq(true)
+        end
+end        
 describe "Node" do
         
     it "Se crea un nodo" do

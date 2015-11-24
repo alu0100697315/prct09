@@ -9,7 +9,22 @@ describe Referencia do
 						   nil, "Pragmatic Bookshelf", "4 edition", "July 7, 2013", ["ISBN-13: 978-1937785499","ISBN-10: 1937785491"])
 		
     end
-
+    context "#Pruebas include comparable" do
+            
+            before :all do
+                @libro1= Libro.new("Dave Thomas", "A", "The Facets of Ruby", 
+                             "Pragmatic Bookshelf", "4 edition", "July 7, 2013", )
+                @libro2= Libro.new("Andy Hunt", "B",
+						    nil, "Pragmatic Bookshelf", "4 edition", "July 7, 2013")
+            end
+            
+            it "El libro1 es mayor estricto que el libro 2 " do
+                 expect(@libro1 > @libro2).to eq(true)
+            end
+            it "El libro1 es menor o igual que el libro 2 " do
+                 expect(@libro1 >= @libro2).to eq(true)
+            end
+    end
     it "debe existir al menos un autor" do
         expect(@b1.autor).not_to eq nil
         expect(@b2.autor).not_to eq nil

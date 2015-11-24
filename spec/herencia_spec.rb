@@ -2,17 +2,15 @@ require "prct07"
 require 'spec_helper'
 
 describe Referencia do
-    describe Libro do
+    context "Libro" do
         
         before :each do
-          @libro = Libro.new(["Dave Thomas","Andy Hunt", "Chad Fowler"], 
-										"Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide",
-										nil, "Pragmatic Bookshelf", "4 edition", "July 7, 2013", 
-										["ISBN-13: 978-1937785499","ISBN-10: 1937785491"])
+          libro = Libro.new(["Dave Thomas","Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers’ Guide", nil, "Pragmatic Bookshelf", "4 edition", "July 7, 2013", ["ISBN-13: 978-1937785499","ISBN-10: 1937785491"])
         end
-#        it "El objeto libro es una instancia de Libro" do
-#            @libro.instance_of? Libro
-#       end
+       it "El objeto libro es una instancia de Libro" do
+     #  @libro.instance_of? Libro
+       expect(libro.instance_of?Libro).to eq(true)
+       end
 #      it "Libro es hijo de Referencia" do
 #         @libro.is_a?Referencia
 #            expect(@libro.class.superclass).to eq (Referencia)
