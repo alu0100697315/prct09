@@ -31,11 +31,11 @@ context "#Pruebas include enumerable" do
             @l1.add(@r4)
         end
         it "comprobrando el metodo all? con un bloque vacio" do
-        #all? -> The method returns true if the block never returns false or nil
+        #all? -> Devuelve true si el bloque no esta vacio
           expect(@l1.all?).to eq(true)
         end
         it "comprobrando el metodo any?" do
-        #any -> The method returns true if the block ever returns a value other than false or nil
+        #any -> Devuelte true si el bloque a veces devuelve valores nulos
           expect(@l1.any?).to eq(true)
         end
 end        

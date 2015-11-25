@@ -73,13 +73,11 @@ class Referencia
 		end
 
 		def <=>(other)
-			#return nil unless other.kind_of? Bibliografia::Bibliografia
-			@titulo <=> other.titulo
+			@autor <=> other.autor
 		end
 		
 		def ==(other)
-			#return nil unless other.kind_of? Bibliografia::Bibliografia
-			@titulo == other.titulo
+			@autor == other.autor
 		end
 		def to_s
 			salida = String.new ""

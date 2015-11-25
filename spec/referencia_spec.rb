@@ -16,14 +16,21 @@ describe Referencia do
                              "Pragmatic Bookshelf", "4 edition", "July 7, 2013", )
                 @libro2= Libro.new("Andy Hunt", "B",
 						    nil, "Pragmatic Bookshelf", "4 edition", "July 7, 2013")
+				@libro3= Libro.new("Dave Thomas", "A", "The Facets of Ruby", 
+                             "Pragmatic Bookshelf", "4 edition", "July 7, 2013", )
+			    
             end
             
             it "El libro1 es mayor estricto que el libro 2 " do
-                 expect(@libro1 > @libro2).to eq(true)
+                 expect(@libro1 < @libro2).to eq(true)
             end
             it "El libro1 es menor o igual que el libro 2 " do
-                 expect(@libro1 >= @libro2).to eq(true)
+                 expect(@libro1 <= @libro2).to eq(true)
             end
+            it "El libro1 es igual al libro3" do
+                expect(@libro1 == @libro3).to eq(true)
+            end
+                
     end
     it "debe existir al menos un autor" do
         expect(@b1.autor).not_to eq nil
