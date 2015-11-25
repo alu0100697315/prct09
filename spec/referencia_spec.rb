@@ -21,7 +21,7 @@ describe Referencia do
 			    
             end
             
-            it "El libro1 es mayor estricto que el libro 2 " do
+            it "El libro1 es menor estricto que el libro 2 " do
                  expect(@libro1 < @libro2).to eq(true)
             end
             it "El libro1 es menor o igual que el libro 2 " do

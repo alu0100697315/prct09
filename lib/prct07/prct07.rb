@@ -15,11 +15,8 @@ class Bibliografia
 def each
 aux = @head
     if (@head == nil and @tail == nil)
-                
                 yield nil
-                
             elsif (@head == @tail)
-                
                 yield @head.value
             else
                 while(aux != nil)
