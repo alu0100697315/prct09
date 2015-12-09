@@ -118,6 +118,9 @@ class Referencia
 		end
 end
 
+class Cita
+end
+
 class Libro < Referencia
     #
        attr_accessor :isbn, :editorial, :nedi

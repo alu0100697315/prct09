@@ -3,6 +3,7 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'prct07/version'
 
+
 Gem::Specification.new do |spec|
   spec.name          = "prct07"
   spec.version       = Prct07::VERSION
@@ -33,4 +34,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "guard-bundler"
+  spec.add_development_dependency "coveralls"
 end
