@@ -57,7 +57,7 @@ end
 		end
 end
 class Referencia
-		attr_accessor :autor, :titulo, :serie,:editorial,:nedi,  :fecha, :isbn  
+		attr_accessor :autor, :titulo, :serie,:editorial,:nedi,  :fecha, :isbn   
 		include Comparable
 		def initialize (autor, titulo, serie, editorial, nedi, fecha, isbn )
 			@autor = autor
@@ -119,10 +119,11 @@ class Referencia
 end
 
 class Cita
+
 end
 
+
 class Libro < Referencia
-    #
        attr_accessor :isbn, :editorial, :nedi
 		def initialize(titulo, autor, fecha, isbn, editorial, nedi)
 			@titulo= titulo
